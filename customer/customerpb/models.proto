@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package customer.models;
+
+option go_package= "customerpb";
+
+message Customer {
+  string UUID = 1;
+  string FirstName = 2;
+  string LastName = 3;
+  string DOB = 4;
+  repeated BillingInformation Billing = 5;
+  string AccountCreationDate = 6;
+  int32 Rating = 7;
+}
+
+message BillingInformation{
+  string StreetAddress = 1;
+  string City = 2;
+  string State = 3;
+  string Zip = 4;
+  string CardNumber = 5;
+  string CV = 6;
+}

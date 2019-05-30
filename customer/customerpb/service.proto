@@ -1,0 +1,42 @@
+syntax="proto3";
+
+package customer.service;
+
+import "models.proto";
+
+option go_package= "customerpb";
+
+service Customer {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Pull(PullRequest) returns (PullResponse);
+  rpc Search(SearchRequest) returns (SearchResponse);
+}
+
+message Empty{}
+
+message RegisterRequest{
+  string FirstName = 2;
+  string LastName = 3;
+  string DOB = 4;
+}
+
+message RegisterResponse{}
+
+message PullRequest{
+  string UUID = 1;
+}
+
+message PullResponse{
+  customer.models.Customer CustomerProfile = 1;
+}
+
+message SearchRequest{
+  string FirstName = 1;
+  string LastName = 2;
+  string DOB = 3;
+  string Scroll = 4;
+}
+  
+message SearchResponse{
+  repeated customer.models.Customer Results = 1;
+}

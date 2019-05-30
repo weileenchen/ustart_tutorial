@@ -26,6 +26,8 @@ In order to get everything functional you must have the following installed and/
 
 - ElasticSearch (it is recomended to also have Kibana installed to make monitoring data storage easier)
 
+- PostMan (this is normally used to test REST API's but can be modified to test RPC, however you will not be required to test RPC although it is ecouraged)
+
 To test if you have sucessfully installed protobuf, protoc, and tree you should be able to run `gen-proto.sh` to without problem. By running `gen-proto.sh` you generate Go files based on the framework laid out in in your `.proto` files.
 
 ## About the Repo
