@@ -4,7 +4,7 @@ Introduction to the organizational and operational structure of UStart back end 
 
 ## Example Case
 
-This is a small backend implementation for a car rental service. It's split up into 3 microservices: car , customer, rental record. Cars and customers need to be searchable so they will be backed by ElasticSearch. Rental record is mostly relational so it will be backed by SQL (namely postgres). All microservervices will have a dedicated REST or RPC api so they can be individually scaled as necessary.
+This is a small backend implementation for a car rental service. It's split up into 3 microservices: car , customer, rental record. Cars and customers need to be searchable so they will be backed by ElasticSearch. Rental record is mostly relational so it will be backed by SQL (namely postgres). All microservices will have a dedicated REST or RPC api so they can be individually scaled as necessary.
 
 ## Task
 
@@ -24,9 +24,9 @@ In order to get everything functional you must have the following installed and/
 
 - PostgreSQL (it is recomended to also have pgAdmin installed to make monitoring data storage easier)
 
-- ElasticSearch (it is recomended to also have Kibana installed to make monitoring data storage easier)
+- Elasticsearch (it is recomended to also have Kibana installed to make monitoring data storage easier)
 
-- PostMan (this is normally used to test REST API's but can be modified to test RPC, however you will not be required to test RPC although it is ecouraged)
+- Postman (this is normally used to test REST API's but can be modified to test RPC, however you will not be required to test RPC although it is ecouraged)
 
 To test if you have sucessfully installed protobuf, protoc, and tree you should be able to run `gen-proto.sh` to without problem. By running `gen-proto.sh` you generate Go files based on the framework laid out in in your `.proto` files.
 
