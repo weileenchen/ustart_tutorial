@@ -24,16 +24,16 @@ func (estor *ElasticStore) Lookup(ctx context.Context, uuid string) (customerpb.
 
 	// if there are no hits, then no one exists by that uuid
 	if res.Hits.TotalHits < 1 {
-		return customer, ErrUserDoesNotExist
+		return customer, errUserDoesNotExist
 	}
 
 	// if theres more than a single result then a problem has occurred
 	if res.Hits.TotalHits > 1 {
-		return customer, ErrTooManyResults
+		return customer, errTooManyResults
 	}
 
 	for _, elem := range res.Hits.Hits {
-
+		//Elastic search data comes pacaged and needs to be converted into usable go structs
 		data, err := elem.Source.MarshalJSON()
 		if err != nil {
 			return customer, err

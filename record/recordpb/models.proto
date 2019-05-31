@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package record.models;
+
+option go_package= "recordpb";
+
+message Record {
+  string CarID = 1;
+  string UserID = 2;
+  string DateStart = 3;
+  string DateReturned = 4;
+  float Rate = 5;
+  float TotalDue = 6;
+  float AmtPaid = 7;
+}

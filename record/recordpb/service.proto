@@ -1,0 +1,41 @@
+syntax="proto3";
+
+package record.service;
+
+import "models.proto";
+
+option go_package= "recordpb";
+
+service Customer {
+  rpc New(NewRequest) returns (NewResponse);
+  rpc History(HistoryRequest) returns (HistoryResponse);
+  rpc Pay(PayRequest) returns (PayResponse);
+}
+
+message Empty{}
+
+message NewRequest{
+  string CarID = 1;
+  string UserID = 2;
+  string DateStart = 3;
+  string Rate = 4;
+}
+
+message NewResponse{}
+
+message HistoryRequest{
+  string UserID = 1;
+}
+
+message HistoryResponse{
+  repeated record.models.Record History = 1;
+}
+
+message PayRequest{
+  string UserID = 1;
+  float QuantityPaid = 2;
+}
+
+message PayResponse{
+  float AmtRemaining = 1;
+}

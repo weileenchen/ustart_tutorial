@@ -1,34 +1,28 @@
 syntax="proto3";
 
-package customer.service;
+package car.service;
 
 import "models.proto";
 
-option go_package= "customerpb";
+option go_package= "carpb";
 
 service Customer {
   rpc Register(RegisterRequest) returns (RegisterResponse);
-  rpc Pull(PullRequest) returns (PullResponse);
   rpc Search(SearchRequest) returns (SearchResponse);
+  rpc ToggleAvailable(ToggleRequest) returns (ToggleResponse);
 }
 
 message Empty{}
 
 message RegisterRequest{
-  string FirstName = 2;
-  string LastName = 3;
-  string DOB = 4;
+  string Make = 1;
+  string Model = 2;
+  string Year = 3;
+  string Color = 4;
+  string Class = 5;
 }
 
 message RegisterResponse{}
-
-message PullRequest{
-  string UUID = 1;
-}
-
-message PullResponse{
-  customer.models.Customer CustomerCustomer = 1;
-}
 
 message SearchRequest{
   string FirstName = 1;
@@ -38,5 +32,13 @@ message SearchRequest{
 }
   
 message SearchResponse{
-  repeated customer.models.Customer Results = 1;
+  repeated car.models.Car Results = 1;
+}
+
+message ToggleRequest{
+  string CID = 1;
+}
+
+message ToggleResponse{
+  bool NewStatus = 1;
 }

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package car.models;
+
+option go_package= "carpb";
+
+message Car {
+  string CID = 1;
+  string Make = 2;
+  string Model = 3;
+  string Year = 4;
+  string Color = 5;
+  string Class = 6;
+  bool Available = 7;
+  repeated AccidentHistory History = 8;
+}
+
+message AccidentHistory{
+  string Date = 1;
+  string Details = 2;
+}

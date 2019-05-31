@@ -2,20 +2,24 @@ package elasticstore
 
 import "errors"
 
-var (
-	// ErrUserDoesNotExist user doesnt exist
-	ErrUserDoesNotExist = errors.New("User does not exist")
+//Having errors globalized like this makes it easier for higher level packages to identify specific problems
+//and implement logic for special error cases
+//the variables are not exported so they cant be modified by anything outside the package
 
-	// ErrTooManyResults if more than one result per email shows
-	ErrTooManyResults = errors.New("Too many results, a crititcal error has occurred")
+var (
+	// errUserDoesNotExist user doesnt exist
+	errUserDoesNotExist = errors.New("User does not exist")
+
+	// errTooManyResults if more than one result per email shows
+	errTooManyResults = errors.New("Too many results, a crititcal error has occurred")
 )
 
 //ErrUserDoesNotExist returns a standardized error
 func (estor *ElasticStore) ErrUserDoesNotExist() error {
-	return ErrUserDoesNotExist
+	return errUserDoesNotExist
 }
 
 //ErrTooManyResults returns a standardized error
 func (estor *ElasticStore) ErrTooManyResults() error {
-	return ErrTooManyResults
+	return errTooManyResults
 }

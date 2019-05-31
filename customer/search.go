@@ -31,7 +31,7 @@ func (customer *Customer) Search(ctx context.Context, req *customerpb.SearchRequ
 		if err != nil {
 			res = append(res, &cust)
 		} else {
-			resErr = ErrProblemLoadingcustomer
+			resErr = errProblemLoadingCustomer
 		}
 	}
 	return &customerpb.SearchResponse{Results: res}, resErr
