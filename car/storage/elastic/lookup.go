@@ -8,7 +8,7 @@ import (
 	"github.com/weileenchen/ustart_tutorial/car/carpb"
 )
 
-// Lookup retreives a customer doc using a certain UUID
+// Lookup retreives a car doc using a certain UUID
 func (estor *ElasticStore) Lookup(ctx context.Context, uuid string) (carpb.Car, error) {
 	var car carpb.Car
 
