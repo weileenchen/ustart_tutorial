@@ -7,7 +7,7 @@ import (
 )
 
 //Register creates a new ES document for a new registering car
-func (estor *ElasticStore) Register(ctx context.Context, make string, model string, year string, color string, class string) error {
+func (estor *ElasticStore) Register(ctx context.Context, cid string, make string, model string, year string, color string, class string) error {
 
 	//Lock just to make sure no two people can sign up with the same username at the same time
 	newUserLock.Lock()
@@ -17,14 +17,14 @@ func (estor *ElasticStore) Register(ctx context.Context, make string, model stri
 		Index(estor.eIndex).
 		Type(estor.eType).
 		BodyJson(carpb.Car{
+			CID:   cid,
 			Make:  make,
 			Model: model,
 			Year:  year,
 			Color: color,
 			Class: class,
 		}).
-		//Double check this id
-		Id(make).
+		Id(cid).
 		Do(ctx)
 
 	return err
