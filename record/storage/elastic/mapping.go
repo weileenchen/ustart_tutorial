@@ -19,7 +19,7 @@ func mapping(indexName string) string {
 
 	"mappings":{
 		"properties":{
-			"FirstName":{
+			"CarID":{
 				"type": "text",
 				"analyzer":"my_analyzer",
 				"fields":{
@@ -28,7 +28,7 @@ func mapping(indexName string) string {
 					}
 				}
 			},
-			"LastName":{
+			"UserID":{
 				"type":"text",
 				"analyzer":"my_analyzer",
 				"fields":{
@@ -37,7 +37,7 @@ func mapping(indexName string) string {
 					}
 				}
 			},
-			"DOB":{
+			"DateStart":{
 				"type":"text",
 				"analyzer":"my_analyzer",
 				"fields":{
@@ -46,62 +46,39 @@ func mapping(indexName string) string {
 					}
 				}
 			},
-			"BillingInformation": {
-				"type":"nested", 
-				"properties":{
-					"StreetAddress":{
-						"type":"text",
-						"analyzer":"my_analyzer",
-						"fields":{
-							"raw":{
-								"type":"keyword"
-							}
-						}
-					},
-					"City":{
-						"type":"text",
-						"analyzer":"my_analyzer",
-						"fields":{
-							"raw":{
-								"type":"keyword"
-							}
-						}
-					},
-					"State":{
-						"type":"text",
-						"analyzer":"my_analyzer",
-						"fields":{
-							"raw":{
-								"type":"keyword"
-							}
-						}
-					},
-					"Zip":{
-						"type":"text",
-						"analyzer":"my_analyzer",
-						"fields":{
-							"raw":{
-								"type":"keyword"
-							}
-						}
-					},
-					"CardNumber":{
-						"type":"text",
-						"analyzer":"my_analyzer",
-						"fields":{
-							"raw":{
-								"type":"keyword"
-							}
-						}
-					},
-					"CV":{
-						"type":"text",
-						"analyzer":"my_analyzer",
-						"fields":{
-							"raw":{
-								"type":"keyword"
-							}
-						}
+			"DateReturned":{
+				"type":"text",
+				"analyzer":"my_analyzer",
+				"fields":{
+					"raw":{
+						"type":"keyword"
+					}
+				}
+			},
+			"Rate":{
+				"type":"float",
+				"analyzer":"my_analyzer",
+				"fields":{
+					"raw":{
+						"type":"keyword"
+					}
+				}
+			},
+			"TotalDue":{
+				"type":"float",
+				"analyzer":"my_analyzer",
+				"fields":{
+					"raw":{
+						"type":"keyword"
+					}
+				}
+			},
+			"AmtPaid":{
+				"type":"float",
+				"analyzer":"my_analyzer",
+				"fields":{
+					"raw":{
+						"type":"keyword"
 					}
 				}
 			},

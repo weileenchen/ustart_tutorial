@@ -24,7 +24,7 @@ func (estor *ElasticStore) Lookup(ctx context.Context, uuid string) (recordpb.Re
 
 	// if there are no hits, then no one exists by that uuid
 	if res.Hits.TotalHits.Value < 1 {
-		return record, errUserDoesNotExist
+		return record, errRecordDoesNotExist
 	}
 
 	// if theres more than a single result then a problem has occurred
