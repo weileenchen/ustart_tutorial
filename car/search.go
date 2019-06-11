@@ -7,7 +7,7 @@ import (
 )
 
 // Search retreives a list of minimal customer data based off search queries
-func (caer *Car) Search(ctx context.Context, req *carpb.SearchRequest) (*carpb.SearchResponse, error) {
+func (car *Car) Search(ctx context.Context, req *carpb.SearchRequest) (*carpb.SearchResponse, error) {
 
 	queryArr := []string{req.FirstName, req.LastName, req.DOB}
 	// filterArr := strings.FieldsFunc(req.Filters, split)
