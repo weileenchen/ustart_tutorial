@@ -13,6 +13,6 @@ type Storage interface {
 	//fix later, figure out how to implement Pay
 	Pay(context.Context, []string, bool, map[string][]string, string) ([]string, error)
 
-	ErrUserDoesNotExist() error
+	ErrRecordDoesNotExist() error
 	ErrTooManyResults() error
 }

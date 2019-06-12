@@ -22,11 +22,6 @@ func (estor *ElasticStore) ErrRecordDoesNotExist() error {
 	return errRecordDoesNotExist
 }
 
-//ErrUserDoesNotExist returns a standardized error
-func (estor *ElasticStore) ErrUserDoesNotExist() error {
-	return errUserDoesNotExist
-}
-
 //ErrTooManyResults returns a standardized error
 func (estor *ElasticStore) ErrTooManyResults() error {
 	return errTooManyResults

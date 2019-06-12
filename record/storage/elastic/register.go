@@ -7,7 +7,7 @@ import (
 )
 
 //Register creates a new ES document for a new record
-func (estor *ElasticStore) New(ctx context.Context, carID string, userID string, dateStart string, rate string) error {
+func (estor *ElasticStore) Register(ctx context.Context, carID string, userID string, dateStart string, rate string) error {
 
 	//Lock just to make sure no two people can sign up with the same userID at the same time
 	newUserLock.Lock()
