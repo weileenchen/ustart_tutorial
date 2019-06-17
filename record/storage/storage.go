@@ -16,6 +16,8 @@ type Storage interface {
 	//fix later, figure out how to implement Pay
 	Pay(context.Context, []string, bool, map[string][]string, string) ([]string, error)
 
+	Insert(ctx context.Context, string, string, string, int) error
+
 	ErrRecordDoesNotExist() error
 	ErrTooManyResults() error
 }

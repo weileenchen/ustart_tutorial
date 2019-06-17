@@ -7,7 +7,6 @@ import (
 	"os"
 	"strconv"
 
-	_ "github.com/lib/pq"
 	"github.com/sea350/ustart_tutorial/api/rest/customer"
 	//prof "github.com/sea350/ustart_tutorial/customer"
 	//"github.com/sea350/ustart_tutorial/customer/storage"

@@ -13,13 +13,6 @@ type Record struct {
 
 // New returns a new Eclient record service
 func New(cfg *Config) (*Record, error) {
-	// if cfg.useDummy
 
-	storg, err := storage.NewES(cfg.StorageConfig)
-
-	rec := &Record{
-		strg: storg,
-	}
-
-	return rec, err
+	return nil, nil
 }

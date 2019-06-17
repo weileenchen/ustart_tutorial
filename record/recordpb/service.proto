@@ -6,22 +6,22 @@ import "models.proto";
 
 option go_package= "recordpb";
 
-service Customer {
-  rpc New(NewRequest) returns (NewResponse);
+service Record {
+  rpc Insert(InsertRequest) returns (InsertResponse);
   rpc History(HistoryRequest) returns (HistoryResponse);
   rpc Pay(PayRequest) returns (PayResponse);
 }
 
 message Empty{}
 
-message NewRequest{
+message InsertRequest{
   string CarID = 1;
   string UserID = 2;
   string DateStart = 3;
   string Rate = 4;
 }
 
-message NewResponse{}
+message InsertResponse{}
 
 message HistoryRequest{
   string UserID = 1;

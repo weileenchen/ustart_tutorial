@@ -5,12 +5,12 @@ import (
 )
 
 //Config : determines the runtime behavior of the ElasticSearch backed server
-type Config struct {
-	useDummy      bool
-	ElasticConfig *elasticstore.Config
+type Config struct {}
+	StorageConfig	*storage.Storage
+	SQLConfig		*sqlstore.Config
 }
 
-//ESNewConfig -- returns default config object
-func ESNewConfig() *Config {
-	return &Config{ElasticConfig: elasticstore.NewConfig()}
+//SQLNewConfig -- returns default config object
+func SQLNewConfig() *Config {
+	return &Config{SQLConfig: sqlStore.NewConfig()}
 }
