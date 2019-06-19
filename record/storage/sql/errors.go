@@ -1,4 +1,4 @@
-package elasticstore
+package sqlstore
 
 import "errors"
 

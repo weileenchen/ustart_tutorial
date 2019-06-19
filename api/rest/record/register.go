@@ -40,7 +40,7 @@ func (rapi *RESTAPI) Register(w http.ResponseWriter, req *http.Request) {
 		ret["error"] = ""
 	}
 
-	data, err := json.Marshal(ret)
+	data, err := json.Marshal(ret) //takes information and converts to json
 	if err != nil {
 		logger.Panic(err)
 	}
