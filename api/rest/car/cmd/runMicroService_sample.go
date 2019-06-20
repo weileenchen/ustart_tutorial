@@ -39,7 +39,7 @@ func main() {
 
 	//Assigning the handler functions to a url
 	http.HandleFunc("/", nil)
-	http.HandleFunc("/pull", restAPI.Pull)
+	http.HandleFunc("/toggleAvailable", restAPI.Pull)
 	http.HandleFunc("/register", restAPI.Register)
 	http.HandleFunc("/search", nil) //Not yet implemented for REST
 
