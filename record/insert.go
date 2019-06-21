@@ -7,6 +7,7 @@ import (
 	"github.com/weileenchen/ustart_tutorial/record/recordpb"
 )
 
+//Insert submits a new row with the data into SQL
 func (rec *Record) Insert(ctx context.Context, req *recordpb.InsertRequest) (*recordpb.Insert, error) {
 	//additional security checks (proper user format, proper email)
 	intVal, err := strconv.Atoi(req.Rate)

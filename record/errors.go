@@ -3,7 +3,7 @@ package record
 import "errors"
 
 var (
-	//errRecordExists This user already has a recordr
+	//errRecordExists This user already has a record
 	errRecordExists = errors.New("This user already has a Record")
 
 	//errProblemLoadingRecord This user already has a record
