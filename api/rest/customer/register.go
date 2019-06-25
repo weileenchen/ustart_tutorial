@@ -28,7 +28,7 @@ func (rapi *RESTAPI) Register(w http.ResponseWriter, req *http.Request) {
 
 	ret := make(map[string]interface{})
 
-	resp, err := rapi.prof.Register(regCtx, profReq)
+	resp, err := rapi.cust.Register(regCtx, profReq)
 	if resp != nil {
 		ret["response"] = resp
 	} else {

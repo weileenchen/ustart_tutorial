@@ -6,8 +6,6 @@ import (
 	"fmt"
 	"net/http"
 	"time"
-
-	"github.com/sea350/ustart_tutorial/car/carpb"
 )
 
 //ToggleAvailable changes availability status
@@ -16,16 +14,13 @@ func (rapi *RESTAPI) ToggleAvailable(w http.ResponseWriter, req *http.Request) {
 	defer cancel()
 
 	req.ParseForm()
-	avail := req.Form.Get("Available")
 
-	lookReq := &carpb.ToggleAvailable{
-		avail = lookReq
-		Available: avail,
-	}
+	carID := req.Form.Get("carID")
 
 	ret := make(map[string]interface{})
 
-	resp, err := rapi.prof.Pull(regCtx, lookReq)
+	resp, err := rapi.car.ToggleAvailable(regCtx, carID)
+
 	if resp != nil {
 		ret["response"] = resp
 	} else {

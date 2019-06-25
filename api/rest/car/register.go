@@ -16,19 +16,24 @@ func (rapi *RESTAPI) Register(w http.ResponseWriter, req *http.Request) {
 	defer cancel()
 
 	req.ParseForm()
-	fname := req.Form.Get("firstname")
-	lname := req.Form.Get("lastname")
-	dob := req.Form.Get("dob")
+	make := req.Form.Get("make")
+	model := req.Form.Get("model")
+	year := req.Form.Get("year")
+	color := req.Form.Get("color")
+	class := req.Form.Get("class")
 
 	profReq := &carpb.RegisterRequest{
-		FirstName: fname,
-		LastName:  lname,
-		DOB:       dob,
+		Make:  make,
+		Model: model,
+		Year:  year,
+		Color: color,
+		Class: class,
 	}
 
 	ret := make(map[string]interface{})
 
-	resp, err := rapi.prof.Register(regCtx, profReq)
+	resp, err := rapi.car.Register(regCtx, profReq)
+
 	if resp != nil {
 		ret["response"] = resp
 	} else {
