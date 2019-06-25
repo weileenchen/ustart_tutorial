@@ -8,7 +8,7 @@ import (
 	"strconv"
 
 	_ "github.com/lib/pq"
-	"github.com/sea350/ustart_tutorial/api/rest/customer"
+	"github.com/weileenchen/ustart_tutorial/api/rest/car"
 	//prof "github.com/sea350/ustart_tutorial/customer"
 	//"github.com/sea350/ustart_tutorial/customer/storage"
 	//elasticstore "github.com/sea350/ustart_tutorial/customer/storage/elastic"
@@ -39,7 +39,7 @@ func main() {
 
 	//Assigning the handler functions to a url
 	http.HandleFunc("/", nil)
-	http.HandleFunc("/pull", restAPI.Pull)
+	http.HandleFunc("/toggleAvailable", restAPI.toggleAvailabke)
 	http.HandleFunc("/register", restAPI.Register)
 	http.HandleFunc("/search", nil) //Not yet implemented for REST
 

@@ -10,7 +10,7 @@ type RESTAPI struct {
 	prof *car.Car
 }
 
-// New creates a new customer api, given the config
+// New creates a new car api, given the config
 func New(cfg *Config) (*RESTAPI, error) {
 	prof, err := car.New(cfg.ProfCfg)
 	if err != nil {

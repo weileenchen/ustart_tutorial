@@ -1,7 +1,7 @@
 package car
 
 import (
-	"github.com/sea350/ustart_tutorial/car"
+	"github.com/weileenchen/ustart_tutorial/car"
 )
 
 // Config for car api

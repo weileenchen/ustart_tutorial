@@ -5,7 +5,7 @@ import (
 )
 
 // ToggleAvailable changes status from true/false to false/true depending on initial response
-func (car *Car) ToggleAvailable(req carpb.ToggleRequest) {
+func (car *Car) ToggleAvailable(req carpb.ToggleRequest) bool {
 	//start diverging in the storage
 	//check current status -- storage function -- check car availability
 	//then have another function which updates availability
@@ -15,7 +15,9 @@ func (car *Car) ToggleAvailable(req carpb.ToggleRequest) {
 
 	if response == true {
 		UpdateAvailabilityStatus(false)
+		return false
 	} else {
 		UpdateAvailabilityStatus(true)
+		return true
 	}
 }

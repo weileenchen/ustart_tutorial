@@ -10,18 +10,17 @@ import (
 	"github.com/sea350/ustart_tutorial/car/carpb"
 )
 
-// Pull wraps backend/car/pull.go
-func (rapi *RESTAPI) Pull(w http.ResponseWriter, req *http.Request) {
+//ToggleAvailable changes availability status
+func (rapi *RESTAPI) ToggleAvailable(w http.ResponseWriter, req *http.Request) {
 	regCtx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
 	defer cancel()
 
-	//NOTE: this method of retrieving data from a REST request should only be used for GET requests
-	//later on you will be shown the difference between what is and when you should use GET or POST
 	req.ParseForm()
-	uuid := req.Form.Get("uuid")
+	avail := req.Form.Get("Available")
 
-	lookReq := &carpb.PullRequest{
-		UUID: uuid,
+	lookReq := &carpb.ToggleAvailable{
+		avail = lookReq
+		Available: avail,
 	}
 
 	ret := make(map[string]interface{})
