@@ -15,6 +15,9 @@ import (
 )
 
 func main() {
+	//prints into terminal but gives additional options
+	//set log flags to the file
+	//lshortfile -- prints logname as well as number
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	log.Println("Dialing up...")
 
@@ -38,11 +41,16 @@ func main() {
 	}
 
 	//Assigning the handler functions to a url
-	http.HandleFunc("/", nil)
+
+	//there for posterity
+	http.HandleFunc("/", nil)	//route endpoint -- instead of returning an error response it returns nil
+
+
 	http.HandleFunc("/pull", restAPI.Pull)
 	http.HandleFunc("/register", restAPI.Register)
 	http.HandleFunc("/search", nil) //Not yet implemented for REST
 
 	//Hear and handle
+	//runs the restapi on the config port
 	http.ListenAndServe(":"+strconv.Itoa(config.Port), nil)
 }

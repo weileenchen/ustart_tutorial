@@ -6,18 +6,18 @@ import ()
 
 // RESTAPI implements a REST api
 // as a wrapper around the customer package.
-type RESTAPI struct {
-	prof *car.Car
+type CARRESTAPI struct {
+	car *car.Car
 }
 
 // New creates a new car api, given the config
-func New(cfg *Config) (*RESTAPI, error) {
-	prof, err := car.New(cfg.ProfCfg)
+func New(cfg *Config) (*CARRESTAPI, error) {
+	car, err := car.New(cfg.CarCfg)
 	if err != nil {
 		return nil, err
 	}
 
-	return &RESTAPI{
-		prof: prof,
+	return &CARRESTAPI{
+		car: car,
 	}, nil
 }

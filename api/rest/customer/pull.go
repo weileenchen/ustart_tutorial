@@ -1,19 +1,19 @@
 package customer
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"time"
 
 	"github.com/sea350/ustart_tutorial/customer/customerpb"
 )
 
 // Pull wraps backend/customer/pull.go
 func (rapi *RESTAPI) Pull(w http.ResponseWriter, req *http.Request) {
-	regCtx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
-	defer cancel()
+	//old method, should be revised
+	//don't designate our own context
+	// regCtx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+	// defer cancel()
 
 	//NOTE: this method of retrieving data from a REST request should only be used for GET requests
 	//later on you will be shown the difference between what is and when you should use GET or POST
@@ -24,12 +24,16 @@ func (rapi *RESTAPI) Pull(w http.ResponseWriter, req *http.Request) {
 		UUID: uuid,
 	}
 
+	//value interface means it's agnostic
 	ret := make(map[string]interface{})
 
-	resp, err := rapi.prof.Pull(regCtx, lookReq)
+	//take info, pack it up and send it out
+	//use req.Context instead of designating our own context
+	resp, err := rapi.cust.Pull(req.Context(), lookReq)
 	if resp != nil {
 		ret["response"] = resp
 	} else {
+		//cannot package a nil response, so instead package a blank string
 		ret["response"] = ""
 	}
 	if err != nil {
@@ -43,5 +47,6 @@ func (rapi *RESTAPI) Pull(w http.ResponseWriter, req *http.Request) {
 		logger.Panic(err)
 	}
 
+	//Fprint -- outputs the same way but specifies which input/output socket to dump everything into
 	fmt.Fprintln(w, string(data))
 }

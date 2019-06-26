@@ -6,6 +6,6 @@ import (
 
 // Config for car api
 type Config struct {
-	ProfCfg *car.Config
-	Port    int //Recomended 5002
+	CarCfg *car.Config
+	Port   int //Recomended 5002
 }
