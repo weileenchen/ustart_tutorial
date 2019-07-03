@@ -9,7 +9,7 @@ import (
 )
 
 //ToggleAvailable changes availability status
-func (rapi *RESTAPI) ToggleAvailable(w http.ResponseWriter, req *http.Request) {
+func (rapi *CARRESTAPI) ToggleAvailable(w http.ResponseWriter, req *http.Request) {
 	regCtx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
 	defer cancel()
 

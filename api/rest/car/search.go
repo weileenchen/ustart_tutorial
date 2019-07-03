@@ -7,24 +7,24 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/sea350/ustart_tutorial/car/carpb"
+	"github.com/weileenchen/ustart_tutorial/car/carpb"
 )
 
-//Search 
-func (rapi *RESTAPI) Search(w http.ResponseWriter, req *http.Request) {
+//Search implements search
+func (rapi *CARRESTAPI) Search(w http.ResponseWriter, req *http.Request) {
 	regCtx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
 	defer cancel()
 
 	req.ParseForm()
 	id := req.Form.Get("CarID")
 
-	lookReq := &carpb.Search(id){
+	lookReq := &carpb.Search{
 		CarID: id,
 	}
 
 	ret := make(map[string]interface{})
 
-	resp, err := rapi.prof.Pull(regCtx, lookReq)
+	resp, err := rapi.car.Search(regCtx, lookReq)
 	if resp != nil {
 		ret["response"] = resp
 	} else {
