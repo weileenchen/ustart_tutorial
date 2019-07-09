@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"net/http"
 	"time"
+
+	"github.com/weileenchen/ustart_tutorial/car/carpb"
 )
 
 //ToggleAvailable changes availability status
@@ -16,12 +18,14 @@ func (rapi *CARRESTAPI) ToggleAvailable(w http.ResponseWriter, req *http.Request
 	req.ParseForm()
 
 	carID := req.Form.Get("carID")
+	var togReq carpb.ToggleRequest
+	togReq.CID = carID
 
 	ret := make(map[string]interface{})
 
-	resp, err := rapi.car.ToggleAvailable(regCtx, carID)
+	resp, err := rapi.car.ToggleAvailable(regCtx, togReq)
 
-	if resp != nil {
+	if resp.NewStatus != nil {
 		ret["response"] = resp
 	} else {
 		ret["response"] = ""

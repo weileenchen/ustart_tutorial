@@ -4,8 +4,7 @@ import (
 	"github.com/weileenchen/ustart_tutorial/car"
 )
 
-// CARRESTAPI implements a REST api
-// as a wrapper around the customer package.
+// CARRESTAPI implements a REST api as a wrapper around the customer package.
 type CARRESTAPI struct {
 	car *car.Car
 }

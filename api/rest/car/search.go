@@ -16,11 +16,12 @@ func (rapi *CARRESTAPI) Search(w http.ResponseWriter, req *http.Request) {
 	defer cancel()
 
 	req.ParseForm()
-	id := req.Form.Get("CarID")
+	firstName := req.Form.Get("FirstName")
+	lastName := req.Form.Get("LastName")
+	dob := req.Form.Get("DOB")
+	scroll := req.Form.Get("Scroll")
 
-	lookReq := &carpb.Search{
-		CarID: id,
-	}
+	lookReq := &carpb.Search(firstName, lastName, dob, scroll)
 
 	ret := make(map[string]interface{})
 
